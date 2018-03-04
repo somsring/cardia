@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+<title>Assignment01</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+a{text-decoration: none
+}
+</style>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Right Column -->
+    <div class="w3-full">
+        
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <center>
+          <h3><b>UNIVERSITY OF CRETE</b></h3> 
+          <h3><b>DEPARTMENT OF COMPUTER SCIENCE</b></h3>
+          <h5><b>Multimedia Technoogy </b></h5>
+          <h6><b>Assignment 2</b></h6>
+         
+            <table border="0">
+              <tr>
+                <td height="130" width="200" valign="top" align="middle"><img src="images/cardiaAnimation.gif" alt="cardia gif"></td>
+                <td height="130" width="200" align="middle"><video width="120" height="120" autoplay alt="reload page to play the video">
+                    <source src="images/cardiaAnimation.mp4" type="video/mp4">
+                    <source src="images/cardiaAnimation.ogg" type="video/ogg">
+                       Your browser does not support the video tag.
+                    </video></td>
+              </tr>
+              <tr>
+                <td align="middle">CardiaAnimation.gif</td>
+                <td align="middle">CardiaAnimation.mp4</td>
+              </tr>
+
+              <tr>
+                <td colspan=2 height="100" valign="bottom">
+                  <h6><b>The difference between GIF and MP4 format</b></h6>
+                </td>
+              </tr>
+              <tr>
+                <td colspan=2>
+                  1. The file size of differes where GIF files have larger size then mp4
+                </td>
+              </tr>
+              <tr>
+                <td colspan=2>
+                  2. GIFs use a reduced 256 color palette, which makes GIFs look more grainy on realistic images
+                </td>
+              </tr>
+            </table>
+             </center> 
+            
+          <br>
+            <h6 align="middle"><b>Matlab Algorithm</b></h6>
+            <center><table border="1">
+              <tr>
+                <td style="padding: 20px">
+                    <pre>
+%to load the cardia.mat file
+load cardia.mat
+s=V1(:,:);
+result=uint8(s); %convert to uint 8 from uint16
+
+imshow(result); %show the all the image in one figure then save images and crop one by one
+
+imgfiles=dir('*.jpg');%read all images 
+
+nfiles=length(imgfiles);
+for i=1:nfiles
+    currentfiles=imgfiles(i).name;
+    currentimage=imread(currentfiles);
+    images{i}=currentimage;
+    %imshow(images{i}); %to show multiple images
+end
+
+%name of animated file to be saved
+FileName = 'cardiaAnimation.gif';
+
+%looping through all the files and writing to gif
+  for k = 1:nfiles
+      im = rgb2gray(images{k}); 
+      if k ==1
+        %for first images
+        imwrite(im,FileName,'gif','LoopCount',Inf,'DelayTime',0.1);
+      else
+        imwrite(im,FileName,'gif','WriteMode','append','DelayTime',0.1);
+      end
+  end
+
+                  </pre>
+                </td>
+              </tr>
+            </table>
+          </center>
+          <br><br>
+        </div>
+        
+     
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top" >
+  <p>Find me on social media.</p>
+  <p>
+  <i class="fa fa-facebook-official w3-hover-opacity">&nbsp;Sonam Tshering</i>&nbsp;
+  <i class="fa fa-instagram w3-hover-opacity">&nbsp;sonam_victrious</i>&nbsp;
+  <i class="fa fa-twitter w3-hover-opacity">&nbsp;sonamts31046832</i>
+  </p>
+  
+</footer>
+
+</body>
+</html>
+
+
+<!--
+
+      <div class="w3-container w3-card w3-white w3-margin-bottom" >
+        <div class="w3-container">
+          <h3 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>2. System features </h3>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>xxxx</b></h5>
+        
+          <p>xxxxxx</p><hr>
+        </div>
+      </div>
+
+        -->
